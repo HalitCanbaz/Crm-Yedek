@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CrmApp.Models.Departman>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5>Departman Listesi</h5>
+        <hr />
+        <p>
+            <a class="btn btn-secondary" asp-action="Create">Yeni Oluştur</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Departman Adı
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DepartmanName)
+                        </td>
+                        <td>
+                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Düzenle</a> |
+  @*                          <a asp-action="Details" asp-route-id="@item.Id">Detay</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

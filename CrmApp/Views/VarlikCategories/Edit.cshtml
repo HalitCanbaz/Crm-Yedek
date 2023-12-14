@@ -1,0 +1,38 @@
+﻿@model CrmApp.Models.VarlikCategories
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4>Varlık Atama Düzelt</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="VarlikId" class="control-label"> Varlık</label>
+                        <select asp-for="VarlikId" class="form-control" asp-items="ViewBag.VarlikId"></select>
+                        <span asp-validation-for="VarlikId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CategoriesId" class="control-label">Atanacak Kategori</label>
+                        <select asp-for="CategoriesId" class="form-control" asp-items="ViewBag.CategoriesId"></select>
+                        <span asp-validation-for="CategoriesId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Düzelt" class="btn btn-secondary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a class="btn btn-info" asp-action="Index">Varlık Listesine Dön</a>
+        </div>
+
+    </div>
+</div>

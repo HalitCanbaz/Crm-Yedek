@@ -1,0 +1,221 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = CrmApp
+build_property.RootNamespace = CrmApp
+build_property.ProjectDir = C:\Users\hcanbaz\Desktop\Hidromas-isTakip-Programı\CrmApp\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\hcanbaz\Desktop\Hidromas-isTakip-Programı\CrmApp
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Departmen/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVuXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Departmen/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVuXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Departmen/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVuXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Departmen/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVuXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Departmen/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVuXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Duty/CreateDuty.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHV0eVxDcmVhdGVEdXR5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Duty/DutyApprovedList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHV0eVxEdXR5QXBwcm92ZWRMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Role/AssignRoleToUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxBc3NpZ25Sb2xlVG9Vc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Role/CreateRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhdGVSb2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Role/RoleList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxSb2xlTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Role/RoleUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxSb2xlVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Shared/Components/AylikOranComponent/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQXlsaWtPcmFuQ29tcG9uZW50XERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Shared/Components/OnayBekleyenComponent/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcT25heUJla2xleWVuQ29tcG9uZW50XERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Shared/Components/UserPictureComponent/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVXNlclBpY3R1cmVDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Shared/_HeaderNamePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXJOYW1lUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/TaskCategory/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza0NhdGVnb3J5XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/TaskCategory/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza0NhdGVnb3J5XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/TaskCategory/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza0NhdGVnb3J5XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/TaskCategory/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza0NhdGVnb3J5XExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/User/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/User/ForgetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxGb3JnZXRQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/User/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/User/SignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTaWduSW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/User/SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTaWduVXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/User/UserApprovedList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyQXBwcm92ZWRMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/User/UserDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/User/UserEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/User/UserList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/VarlikCategories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFybGlrQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/VarlikCategories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFybGlrQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/VarlikCategories/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFybGlrQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/VarlikCategories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFybGlrQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/VarlikCategories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFybGlrQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Varliks/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFybGlrc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Varliks/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFybGlrc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Varliks/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFybGlrc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Varliks/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFybGlrc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Varliks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFybGlrc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Works/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Works/DetailWork.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya3NcRGV0YWlsV29yay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Works/MyOpenedenWorks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya3NcTXlPcGVuZWRlbldvcmtzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Works/MyWorks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya3NcTXlXb3Jrcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Works/WorksApprovedList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya3NcV29ya3NBcHByb3ZlZExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Works/WorkStatusApprovalDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya3NcV29ya1N0YXR1c0FwcHJvdmFsRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Desktop/Hidromas-isTakip-Programı/CrmApp/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-apkvukh61d

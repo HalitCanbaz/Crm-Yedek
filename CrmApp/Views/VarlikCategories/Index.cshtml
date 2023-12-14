@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CrmApp.Models.VarlikCategories>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <p>
+            <a class="btn btn-secondary" asp-action="Create">Varlık'a Kategori Ata</a>
+        </p>
+        <div>
+            <p>
+                <a class="btn btn-info" asp-controller="Varliks" asp-action="Index">Varlık Listesine Dön</a>
+
+            </p>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Varlık
+                    </th>
+                    <th>
+                        Kategorisi
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Varlik.VarlikName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Categories.CategoryName)
+                        </td>
+                        <td>
+                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Düzelt</a> |
+                        @*    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

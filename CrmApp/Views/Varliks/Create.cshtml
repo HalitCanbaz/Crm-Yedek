@@ -1,0 +1,32 @@
+﻿@model CrmApp.Models.Varlik
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4>Varlik Oluştur</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="VarlikName" class="control-label">Varlık Adı</label>
+                        <input asp-for="VarlikName" class="form-control" />
+                        <span asp-validation-for="VarlikName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Oluştur" class="btn btn-secondary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a class="btn btn-info" asp-action="Index">Varlık Listesine Dön</a>
+        </div>
+    </div>
+
+</div>
