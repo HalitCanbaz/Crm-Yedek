@@ -28,7 +28,6 @@ namespace CrmApp.Views.Shared.Components.AylikOranComponent
             DateTime endOfMonth = startOfMonth.AddMonths(1).AddDays(-1);
 
 
-
             var resultFinished = await _context.Works.Where(x => x.AppUserId == user.Id).CountAsync(x => x.Status == "bitti" && x.Finished >= startOfMonth && x.Finished <= endOfMonth);
 
             var resultWaiting = await _context.Works.Where(x => x.AppUserId == user.Id).CountAsync(x => x.Status == "beklemede" && x.Create >= startOfMonth && x.Create <= endOfMonth);

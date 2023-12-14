@@ -2,12 +2,17 @@
 @model AylikOranViewModel
 
 
+
+
+
+
+
 <div class="container-fluid">
     <div class="nk-content-inner">
         <div class="nk-content-body">
             <div class="nk-block">
                 <div class="row g-gs">
-                    <div class="col-xxl-4">
+                    <div class="col-xxl-3">
                         <div class="nk-download">
                             <div class="data">
                                 <div class="thumb"><img src="~/images/icons/product-pp.svg" alt=""></div>
@@ -23,10 +28,10 @@
 
                                     }
                                 </div>
-                            </div>                           
+                            </div>
                         </div><!-- .sp-pdl-item -->
                     </div>
-                    <div class="col-xxl-4">
+                    <div class="col-xxl-3">
                         <div class="nk-download">
                             <div class="data">
                                 <div class="thumb"><img src="~/images/icons/product-ee.svg" alt=""></div>
@@ -42,22 +47,127 @@
 
                                     }
                                 </div>
-                            </div>                           
+                            </div>
                         </div><!-- .sp-pdl-item -->
                     </div>
-                    <div class="col-xxl-4">
+                    <div class="col-xxl-3">
                         <div class="nk-download">
                             <div class="data">
                                 <div class="thumb"><img src="~/images/icons/product-cc.svg" alt=""></div>
                                 <div class="info">
                                     <h6 class="title"><span class="name">Bu ay @Model.TotalFinished adet iş bitirdiniz </span></h6>
                                 </div>
-                            </div>                           
+                            </div>
                         </div><!-- .sp-pdl-item -->
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card card-bordered card-preview">
+                            <div class="card-inner">
+                                <div class="card-head text-center">
+                                    <h6 class="title">Çalışma Durumu Oranlar</h6>
+                                </div>
+                                <div class="nk-ck-sm">
+                                    <canvas class="doughnut-chart" id="doughnutChartData"></canvas>
+                                </div>
+                            </div>
+                        </div><!-- .card-preview -->
+                    </div>
+                    <div class="card-inner">
+                        <div class="nk-ck">
+                            <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                            <canvas class="line-chart chartjs-render-monitor" id="solidLineChart" width="826" height="233" style="display: block; height: 260px; width: 918px;"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 
+<script src="~/assets/js/bundle.js?ver=3.0.0"></script>
+@*    <script src="~/assets/js/example-chart.js?ver=3.0.0"></script>
+    *@
+
+<script>
+    var doughnutChartData = {
+        labels: ["Onay Bekleyen", "1 Aylık Biten", "Bekleyen İşler"],
+        dataUnit: 'Aylık',
+        legend: false,
+        datasets: [{
+            borderColor: "#fff",
+            background: ["#b695ff", "#f4aaa4", "#8feac5"],
+            data: [@Model.TotalApproved, @Model.TotalFinished, @Model.TotalWaiting]
+        }]
+    };
+
+    function doughnutChart(selector, set_data) {
+        var $selector = selector ? $(selector) : $('.doughnut-chart');
+        $selector.each(function () {
+            var $self = $(this),
+                _self_id = $self.attr('id'),
+                _get_data = typeof set_data === 'undefined' ? eval(_self_id) : set_data;
+
+            var selectCanvas = document.getElementById(_self_id).getContext("2d");
+            var chart_data = [];
+
+            for (var i = 0; i < _get_data.datasets.length; i++) {
+                chart_data.push({
+                    backgroundColor: _get_data.datasets[i].background,
+                    borderWidth: 2,
+                    borderColor: _get_data.datasets[i].borderColor,
+                    hoverBorderColor: _get_data.datasets[i].borderColor,
+                    data: _get_data.datasets[i].data
+                });
+            }
+
+            var chart = new Chart(selectCanvas, {
+                type: 'doughnut',
+                data: {
+                    labels: _get_data.labels,
+                    datasets: chart_data
+                },
+                options: {
+                    legend: {
+                        display: _get_data.legend ? _get_data.legend : false,
+                        rtl: NioApp.State.isRTL,
+                        labels: {
+                            boxWidth: 12,
+                            padding: 20,
+                            fontColor: '#6783b8'
+                        }
+                    },
+                    rotation: 1,
+                    cutoutPercentage: 40,
+                    maintainAspectRatio: false,
+                    tooltips: {
+                        enabled: true,
+                        rtl: NioApp.State.isRTL,
+                        callbacks: {
+                            title: function title(tooltipItem, data) {
+                                return data['labels'][tooltipItem[0]['index']];
+                            },
+                            label: function label(tooltipItem, data) {
+                                return data.datasets[tooltipItem.datasetIndex]['data'][tooltipItem['index']] + ' ' + _get_data.dataUnit;
+                            }
+                        },
+                        backgroundColor: '#eff6ff',
+                        titleFontSize: 13,
+                        titleFontColor: '#6783b8',
+                        titleMarginBottom: 6,
+                        bodyFontColor: '#9eaecf',
+                        bodyFontSize: 12,
+                        bodySpacing: 4,
+                        yPadding: 10,
+                        xPadding: 10,
+                        footerMarginTop: 0,
+                        displayColors: false
+                    }
+                }
+            });
+        });
+    } // init doughnut chart
+
+
+    doughnutChart();
+</script>

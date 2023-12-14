@@ -62,10 +62,7 @@ namespace CrmApp.Controllers
             var categoryVarlik = await _context.Varlikcategories.Include(v => v.Categories).Include(v => v.Varlik).ToListAsync();
 
 
-            ViewData["VarlikCategoriesId"] = new SelectList(categoryVarlik, "Id", "VarlikCategoriesName");
-
-            //ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "NameSurName");
-            //ViewData["CategoryId"] = new SelectList(_context.VarlikCategories, "Id", "CategoryName");
+            ViewData["VarlikCategoriesId"] = new SelectList(categoryVarlik, "Id", "VarlikCategoriesName");         
             ViewData["DepartmanId"] = new SelectList(_context.Departman, "Id", "DepartmanName");
 
             DateTime systemClock = DateTime.Now;

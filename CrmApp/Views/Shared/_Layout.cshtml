@@ -386,14 +386,17 @@
     <!-- app-root e -->
     <!-- select region modal -->
     <!-- JavaScript -->
-    <script src="~/assets/js/bundle.js?ver=3.0.0"></script>
     <script src="~/assets/js/scripts.js?ver=3.0.0"></script>
     <script src="~/assets/js/charts/chart-ecommerce.js?ver=3.0.0"></script>
+@*    <script src="~/assets/js/example-chart.js?ver=3.0.0"></script>
+*@
+
+    @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 
 </html>
 
-@await RenderSectionAsync("Scripts", required: false)
 
 @*<div class="count-indicator">
     <img class="img-xs rounded-circle " src="~/userpicture/@TempData["UserPicture"]" alt="">
