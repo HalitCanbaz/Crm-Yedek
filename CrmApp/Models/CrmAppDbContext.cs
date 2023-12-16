@@ -17,6 +17,5 @@ namespace CrmApp.Models
         public DbSet<Departman> Departman { get; set; }
         public DbSet<Varlik> Varliks { get; set; }
         public DbSet<VarlikCategories> Varlikcategories { get; set; }
-        public DbSet<Duty> Duty { get; set; }
     }
 }

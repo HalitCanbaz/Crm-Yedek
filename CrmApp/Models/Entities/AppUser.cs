@@ -29,8 +29,6 @@ namespace CrmApp.Models.Entities
         public int DepartmanId { get; set; }
         public Departman Departman { get; set; }
 
-        public ICollection<Duty> Duty { get; set; } = new HashSet<Duty>();
-
 
 
     }

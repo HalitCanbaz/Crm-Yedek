@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CrmApp.Models;
+using CrmApp.ViewModel.VarlikCategoriesViewModels;
 
 namespace CrmApp.Controllers
 {
@@ -18,48 +19,62 @@ namespace CrmApp.Controllers
             _context = context;
         }
 
-        // GET: VarlikCategories
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int Id)
         {
-            var crmAppDbContext = _context.Varlikcategories.Include(v => v.Categories).Include(v => v.Varlik);
-            return View(await crmAppDbContext.ToListAsync());
+            var varlikCategoriList = _context.Varlikcategories
+                .Join(_context.Varliks, x => x.VarlikId, y => y.Id, (x, y)
+                => new { Varlikcategories = x, Varliks = y })
+                .Join(_context.Categories, x => x.Varlikcategories.CategoriesId, y => y.Id, (x, y)
+                => new { x.Varlikcategories, x.Varliks, Categories = y })
+                .Join(_context.Users, x => x.Varliks.AppUserId, y => y.Id, (x, y)
+                => new { x.Varlikcategories, x.Varliks, x.Categories, Users = y }).Select(x => new ListOfVCViewModel
+                {
+                    UserId = x.Users.Id,
+                    UserName = x.Users.NameSurName,
+                    VarlikName = x.Varliks.VarlikName,
+                    CategoryName = x.Categories.CategoryName
+                }).Where(x => x.UserId == Id);
+
+            var list = varlikCategoriList.Select(x => new ListOfVCViewModel()
+            {
+                UserName = x.UserName,
+                VarlikName = x.VarlikName,
+                CategoryName = x.CategoryName
+            });
+
+            return View(list.ToList());
         }
 
-        // GET: VarlikCategories/Details/5
-        public async Task<IActionResult> Details(int? id)
+
+        public IActionResult Create(int Id)
         {
-            if (id == null || _context.Varlikcategories == null)
-            {
-                return NotFound();
-            }
+            var varliks = _context.Varliks.Where(x => x.Id == Id);
+            var user = _context.Users.Join(_context.Varliks, x => x.Id, y => y.AppUserId, (x, y)
+                => new { Users = x, Varliks = y }).Where(x => x.Varliks.Id == Id).FirstOrDefault();
 
-            var VarlikCategories = await _context.Varlikcategories
-                .Include(v => v.Categories)
-                .Include(v => v.Varlik)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (VarlikCategories == null)
-            {
-                return NotFound();
-            }
 
-            return View(VarlikCategories);
-        }
 
-        // GET: VarlikCategories/Create
-        public IActionResult Create()
-        {
             ViewData["CategoriesId"] = new SelectList(_context.Categories, "Id", "CategoryName");
-            ViewData["VarlikId"] = new SelectList(_context.Varliks, "Id", "VarlikName");
-            return View();
+            ViewData["VarlikId"] = new SelectList(varliks, "Id", "VarlikName");
+
+
+            var result = new CreateVCViewModel()
+            {
+                NameSurName = user.Users.NameSurName
+
+            };
+
+            return View(result);
         }
 
-        // POST: VarlikCategories/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(VarlikCategories model)
+        public async Task<IActionResult> Create(int Id, CreateVCViewModel model)
         {
+            var varliks =await  _context.Varliks.Where(x => x.Id == Id).FirstOrDefaultAsync();          
+
+
             var varlik = await _context.Varliks.FindAsync(model.VarlikId);
             var category = await _context.Categories.FindAsync(model.CategoriesId);
 
@@ -67,136 +82,17 @@ namespace CrmApp.Controllers
             {
                 VarlikId = model.VarlikId,
                 CategoriesId = model.CategoriesId,
-                VarlikCategoriesName = varlik.VarlikName + "-" + category.CategoryName
+                VarlikCategoriesName = varlik.VarlikName + "-" + category.CategoryName,
+
             };
 
             _context.Add(varlikCategories);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-            //ViewData["CategoriesId"] = new SelectList(_context.VarlikCategories, "Id", "CategoryName", VarlikCategories.CategoriesId);
-            //ViewData["VarlikId"] = new SelectList(_context.Varliks, "Id", "VarlikName", VarlikCategories.VarlikId);
-            //return View(VarlikCategories);
+            return RedirectToAction(nameof(Index), new { id = varliks.AppUserId });
+
         }
 
-        // GET: VarlikCategories/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Varlikcategories == null)
-            {
-                return NotFound();
-            }
-
-            var VarlikCategories = await _context.Varlikcategories.FindAsync(id);
-            if (VarlikCategories == null)
-            {
-                return NotFound();
-            }
-            ViewData["CategoriesId"] = new SelectList(_context.Categories, "Id", "CategoryName", VarlikCategories.CategoriesId);
-            ViewData["VarlikId"] = new SelectList(_context.Varliks, "Id", "VarlikName", VarlikCategories.VarlikId);
-            return View(VarlikCategories);
-        }
-
-        // POST: VarlikCategories/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,VarlikId,CategoriesId")] VarlikCategories model)
-        {
 
 
-            var varlik = await _context.Varliks.FindAsync(model.VarlikId);
-            var category = await _context.Categories.FindAsync(model.CategoriesId);
-            var findVarlikCategory = await _context.Varlikcategories.Where(x => x.Id == id).FirstOrDefaultAsync();
-
-
-            if (findVarlikCategory != null)
-            {
-                findVarlikCategory.VarlikId = model.VarlikId;
-                findVarlikCategory.CategoriesId = model.CategoriesId;
-                findVarlikCategory.VarlikCategoriesName = varlik.VarlikName + "-" + category.CategoryName;
-                await _context.SaveChangesAsync();
-
-            }
-
-            return RedirectToAction(nameof(Index));
-
-
-
-
-
-            //if (id != VarlikCategories.Id)
-            //{
-            //    return NotFound();
-            //}
-
-            //if (ModelState.IsValid)
-            //{
-            //    try
-            //    {
-            //        _context.Update(VarlikCategories);
-            //        await _context.SaveChangesAsync();
-            //    }
-            //    catch (DbUpdateConcurrencyException)
-            //    {
-            //        if (!VarlikCategoriesExists(VarlikCategories.Id))
-            //        {
-            //            return NotFound();
-            //        }
-            //        else
-            //        {
-            //            throw;
-            //        }
-            //    }
-            //    return RedirectToAction(nameof(Index));
-            //}
-            //ViewData["CategoriesId"] = new SelectList(_context.Categories, "Id", "CategoryName", VarlikCategories.CategoriesId);
-            //ViewData["VarlikId"] = new SelectList(_context.Varliks, "Id", "VarlikName", VarlikCategories.VarlikId);
-            //return View(VarlikCategories);
-        }
-
-        // GET: VarlikCategories/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Varlikcategories == null)
-            {
-                return NotFound();
-            }
-
-            var VarlikCategories = await _context.Varlikcategories
-                .Include(v => v.Categories)
-                .Include(v => v.Varlik)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (VarlikCategories == null)
-            {
-                return NotFound();
-            }
-
-            return View(VarlikCategories);
-        }
-
-        // POST: VarlikCategories/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Varlikcategories == null)
-            {
-                return Problem("Entity set 'CrmAppDbContext.Varlikcategories'  is null.");
-            }
-            var VarlikCategories = await _context.Varlikcategories.FindAsync(id);
-            if (VarlikCategories != null)
-            {
-                _context.Varlikcategories.Remove(VarlikCategories);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool VarlikCategoriesExists(int id)
-        {
-            return (_context.Varlikcategories?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
     }
 }

@@ -11,7 +11,6 @@ namespace CrmApp.Models
         public string CategoryName { get; set; }
 
         public ICollection<VarlikCategories> Varlikcategories { get; set; } = new HashSet<VarlikCategories>();
-        public ICollection<Duty> Duty { get; set; } = new HashSet<Duty>();
 
     }
 }

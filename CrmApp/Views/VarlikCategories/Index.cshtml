@@ -1,5 +1,4 @@
-﻿@model IEnumerable<CrmApp.Models.VarlikCategories>
-
+﻿@model List<ListOfVCViewModel>
 @{
     ViewData["Title"] = "Index";
 }
@@ -10,12 +9,7 @@
         <p>
             <a class="btn btn-secondary" asp-action="Create">Varlık'a Kategori Ata</a>
         </p>
-        <div>
-            <p>
-                <a class="btn btn-info" asp-controller="Varliks" asp-action="Index">Varlık Listesine Dön</a>
-
-            </p>
-        </div>
+        
         <table class="table">
             <thead>
                 <tr>
@@ -33,16 +27,15 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Varlik.VarlikName)
+                            @item.VarlikName
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Categories.CategoryName)
+                            @item.CategoryName
                         </td>
                         <td>
-                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Düzelt</a> |
-                        @*    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                            @item.UserName
                         </td>
+                     
                     </tr>
                 }
             </tbody>

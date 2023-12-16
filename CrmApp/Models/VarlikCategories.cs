@@ -7,6 +7,7 @@ namespace CrmApp.Models
         public int Id { get; set; }
 
         public int VarlikId { get; set; }
+
         public Varlik Varlik { get; set; }
 
 
@@ -18,7 +19,7 @@ namespace CrmApp.Models
         [StringLength(150)]
         public string VarlikCategoriesName { get; set; }
 
-        public ICollection<Works> Works { get; set; } = new HashSet<Works>();
 
+        public ICollection<Works> Works { get; set; } = new HashSet<Works>();
     }
 }

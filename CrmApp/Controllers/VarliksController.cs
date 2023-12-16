@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CrmApp.Models;
+using CrmApp.ViewModel.VarlikViewModels;
+using CrmApp.ViewModel.WorkViewModels;
+using Microsoft.AspNetCore.Identity;
 
 namespace CrmApp.Controllers
 {
@@ -13,150 +16,73 @@ namespace CrmApp.Controllers
     {
         private readonly CrmAppDbContext _context;
 
+
         public VarliksController(CrmAppDbContext context)
         {
             _context = context;
         }
 
-        // GET: Varliks
-        public async Task<IActionResult> Index()
-        {
-              return _context.Varliks != null ? 
-                          View(await _context.Varliks.ToListAsync()) :
-                          Problem("Entity set 'CrmAppDbContext.Varliks'  is null.");
-        }
 
-        // GET: Varliks/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Varliks == null)
-            {
-                return NotFound();
-            }
-
-            var varlik = await _context.Varliks
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (varlik == null)
-            {
-                return NotFound();
-            }
-
-            return View(varlik);
-        }
-
-        // GET: Varliks/Create
         public IActionResult Create()
         {
+
+            ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "NameSurName");
+
+
             return View();
         }
 
-        // POST: Varliks/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,VarlikName")] Varlik varlik)
+        public async Task<IActionResult> Create(CreateVarlikViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(varlik);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(varlik);
-        }
+            ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "NameSurName");
 
-        // GET: Varliks/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Varliks == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                return View();
             }
 
-            var varlik = await _context.Varliks.FindAsync(id);
-            if (varlik == null)
-            {
-                return NotFound();
-            }
-            return View(varlik);
-        }
 
-        // POST: Varliks/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,VarlikName")] Varlik varlik)
-        {
-            if (id != varlik.Id)
+            Varlik varlik = new Varlik()
             {
-                return NotFound();
-            }
+                VarlikName = model.VarlikName,
+                VarlikCode = model.VarlikCode,
+                VarlikDescription = model.VarlikDescription,
+                AppUserId = model.AppUserId,
+            };
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(varlik);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!VarlikExists(varlik.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(varlik);
-        }
-
-        // GET: Varliks/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Varliks == null)
-            {
-                return NotFound();
-            }
-
-            var varlik = await _context.Varliks
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (varlik == null)
-            {
-                return NotFound();
-            }
-
-            return View(varlik);
-        }
-
-        // POST: Varliks/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Varliks == null)
-            {
-                return Problem("Entity set 'CrmAppDbContext.Varliks'  is null.");
-            }
-            var varlik = await _context.Varliks.FindAsync(id);
-            if (varlik != null)
-            {
-                _context.Varliks.Remove(varlik);
-            }
-            
+            await _context.AddAsync(varlik);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return View();
         }
 
-        private bool VarlikExists(int id)
+
+        public IActionResult List(int Id)
         {
-          return (_context.Varliks?.Any(e => e.Id == id)).GetValueOrDefault();
+            var result = _context.Users.Join(_context.Varliks, x => x.Id, y => y.AppUserId, (x, y)
+                => new { Users = x, Varliks = y }).ToList();
+
+            var varlikList = result.Select(x => new ListOfVarliksViewModel()
+            {
+                Id = x.Varliks.Id,
+                VarlikName = x.Varliks.VarlikName,
+                VarlikCode = x.Varliks.VarlikCode,
+                VarlikDescription = x.Varliks.VarlikDescription,
+                AppUserId = x.Varliks.AppUserId,
+                AppUserName=x.Users.NameSurName
+
+
+            }).OrderByDescending(x => x.Id).ToList();
+            return View(varlikList);
+
         }
+
+
+       
+
+
+
     }
 }

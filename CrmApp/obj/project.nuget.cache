@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "scC3575wNjy0/CJeB7pp1tHJNU5YYRFemNbJIeGz0sB48I/+6hmj+qqswqrtsHV0XhV73Nx4sE3nrF2MmZ0jKw==",
+  "dgSpecHash": "BWoC6/a8h45xdyQsNYjeh4bhb7ZXxxFTm5t353lDqYvOPKmgaFKZhlm3Oc6Wpgcijd6SdOZPJUaU6bt6RnjltA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\canbaz\\Downloads\\Crm-Yedek-main\\Crm-Yedek-main\\CrmApp\\CrmApp.csproj",
+  "projectFilePath": "C:\\Users\\canbaz\\Documents\\GitHub\\Crm-Yedek\\CrmApp\\CrmApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\canbaz\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\canbaz\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

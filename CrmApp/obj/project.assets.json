@@ -11335,11 +11335,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\canbaz\\Downloads\\Crm-Yedek-main\\Crm-Yedek-main\\CrmApp\\CrmApp.csproj",
+      "projectUniqueName": "C:\\Users\\canbaz\\Documents\\GitHub\\Crm-Yedek\\CrmApp\\CrmApp.csproj",
       "projectName": "CrmApp",
-      "projectPath": "C:\\Users\\canbaz\\Downloads\\Crm-Yedek-main\\Crm-Yedek-main\\CrmApp\\CrmApp.csproj",
+      "projectPath": "C:\\Users\\canbaz\\Documents\\GitHub\\Crm-Yedek\\CrmApp\\CrmApp.csproj",
       "packagesPath": "C:\\Users\\canbaz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\canbaz\\Downloads\\Crm-Yedek-main\\Crm-Yedek-main\\CrmApp\\obj\\",
+      "outputPath": "C:\\Users\\canbaz\\Documents\\GitHub\\Crm-Yedek\\CrmApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

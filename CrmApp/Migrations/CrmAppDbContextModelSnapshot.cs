@@ -58,83 +58,6 @@ namespace CrmApp.Migrations
                     b.ToTable("Departman");
                 });
 
-            modelBuilder.Entity("CrmApp.Models.Duty", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AppUserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ApprovedNote")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Create")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DeadLine")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Departman")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<DateTime>("Finished")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FinishedDescription")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<byte>("Progress")
-                        .HasColumnType("tinyint");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("TaskOpenDepartman")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TaskOrderNumber")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime>("Update")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("WhoIsCreate")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
-
-                    b.HasIndex("CategoriesId");
-
-                    b.ToTable("Duty");
-                });
-
             modelBuilder.Entity("CrmApp.Models.Entities.AppRole", b =>
                 {
                     b.Property<int>("Id")
@@ -268,6 +191,19 @@ namespace CrmApp.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("VarlikCode")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("VarlikDescription")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("VarlikName")
                         .IsRequired()
@@ -487,25 +423,6 @@ namespace CrmApp.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("CrmApp.Models.Duty", b =>
-                {
-                    b.HasOne("CrmApp.Models.Entities.AppUser", "AppUser")
-                        .WithMany("Duty")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CrmApp.Models.Categories", "Categories")
-                        .WithMany("Duty")
-                        .HasForeignKey("CategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-
-                    b.Navigation("Categories");
-                });
-
             modelBuilder.Entity("CrmApp.Models.Entities.AppUser", b =>
                 {
                     b.HasOne("CrmApp.Models.Departman", "Departman")
@@ -608,8 +525,6 @@ namespace CrmApp.Migrations
 
             modelBuilder.Entity("CrmApp.Models.Categories", b =>
                 {
-                    b.Navigation("Duty");
-
                     b.Navigation("Varlikcategories");
                 });
 
@@ -620,8 +535,6 @@ namespace CrmApp.Migrations
 
             modelBuilder.Entity("CrmApp.Models.Entities.AppUser", b =>
                 {
-                    b.Navigation("Duty");
-
                     b.Navigation("Works");
                 });
 

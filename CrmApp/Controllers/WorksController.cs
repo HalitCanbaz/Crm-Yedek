@@ -149,8 +149,6 @@ namespace CrmApp.Controllers
             var userControl = await _UserManager.FindByNameAsync(User.Identity.Name);
 
 
-
-
             var worksListViewModel = worksList.Where(x => x.Departman == (userControl.DepartmanId) & x.Status == "beklemede").Select(x => new WorksApprovedList()
             {
                 Id = x.Id,
@@ -159,7 +157,7 @@ namespace CrmApp.Controllers
                 DeadLine = x.DeadLine,
                 WhoIsCreate = x.WhoIsCreate,
                 Status = x.Status,
-                WorkOrderNumber = x.WorkOrderNumber,
+                WorkOrderNumber = x.WorkOrderNumber
 
             }).OrderByDescending(x=> x.Id).ToList();
             return View(worksListViewModel);

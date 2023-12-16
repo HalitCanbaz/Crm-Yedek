@@ -4,17 +4,19 @@
 <head>
     <base href=".~/">
     <meta charset="utf-8">
-    <meta name="author" content="Softnio">
+    <meta name="author" content="Halit-Canbaz">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+    <meta name="description" content="İş ve Proje Takip Uygulaması">
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="~/images/favicon.png">
+    <link rel="shortcut icon" href="~/images/h5.png">
     <!-- Page Title  -->
-    <title>Default Dashboard | DashLite Admin Template</title>
+    <title>Hidromas</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="~/assets/css/dashlite.css?ver=3.0.0">
     <link id="skin-default" rel="stylesheet" href="~/assets/css/theme.css?ver=3.0.0">
 </head>
+
+
 
 <body class="nk-body bg-lighter npc-default has-sidebar ">
     <div class="nk-app-root">
@@ -147,7 +149,7 @@
                                                 </li>
                                             </ul><!-- .nk-menu-sub -->
                                         </li><!-- .nk-menu-item -->
-                                        
+
                                         <li class="nk-menu-item has-sub">
                                             <a href="#" class="nk-menu-link nk-menu-toggle">
                                                 <span class="nk-menu-icon"><em class="icon ni ni-masonry-fill"></em></span>
@@ -158,7 +160,7 @@
                                                     <a asp-controller="Varliks" asp-action="Create" class="nk-menu-link"><span class="nk-menu-text">Varlık Oluştur</span></a>
                                                 </li>
                                                 <li class="nk-menu-item">
-                                                    <a asp-controller="Varliks" asp-action="Index" class="nk-menu-link"><span class="nk-menu-text">Varlık Listesi</span></a>
+                                                    <a asp-controller="Varliks" asp-action="List" class="nk-menu-link"><span class="nk-menu-text">Varlık Listesi</span></a>
                                                 </li>
 
                                             </ul><!-- .nk-menu-sub -->
@@ -246,7 +248,7 @@
                                                     <a class="language-item">
                                                         <img src="~/images/flags/english.png" alt="" class="language-flag">
                                                         <span class="language-name">English</span>
-                                                    </a>                                               
+                                                    </a>
                                                     <a class="language-item">
                                                         <img src="~/images/flags/turkey.png" alt="" class="language-flag">
                                                         <span class="language-name">Türkçe</span>
@@ -383,35 +385,17 @@
         </div>
         <!-- main e -->
     </div>
-    <!-- app-root e -->
-    <!-- select region modal -->
-    <!-- JavaScript -->
-    <script src="~/assets/js/scripts.js?ver=3.0.0"></script>
-    <script src="~/assets/js/charts/chart-ecommerce.js?ver=3.0.0"></script>
-@*    <script src="~/assets/js/example-chart.js?ver=3.0.0"></script>
-*@
+   
+
+
 
     @await RenderSectionAsync("Scripts", required: false)
 
-</body>
+    <script src="~/assets/js/bundle.js?ver=3.0.0"></script>
+    <script src="~/assets/js/scripts.js?ver=3.0.0"></script>
+    <script src="~/assets/js/charts/chart-ecommerce.js?ver=3.0.0"></script>
 
+
+</body>
 </html>
 
-
-@*<div class="count-indicator">
-    <img class="img-xs rounded-circle " src="~/userpicture/@TempData["UserPicture"]" alt="">
-    <span class="count bg-success"></span>
-</div>
-<div class="profile-name">
-    <h5 class="mb-0 font-weight-normal">
-
-        @if (User.Identity.IsAuthenticated)
-        {
-            @TempData["UserName"]
-        }
-
-    </h5>
-    <span>
-        @ViewBag.userPicture
-    </span>
-    <partial name="_HeaderNamePartial">*@

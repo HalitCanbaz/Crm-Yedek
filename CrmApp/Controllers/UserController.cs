@@ -50,7 +50,11 @@ namespace CrmApp.Controllers
 
             ViewData["DepartmanId"] = new SelectList(_context.Departman, "Id", "DepartmanName", departman.Id);
 
+            if (!ModelState.IsValid)
+            {
+                return View();
 
+            }
             var result = await _UserManager.CreateAsync(new()
             {
                 UserName = model.UserName,
