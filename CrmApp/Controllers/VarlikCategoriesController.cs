@@ -72,7 +72,11 @@ namespace CrmApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(int Id, CreateVCViewModel model)
         {
-            var varliks =await  _context.Varliks.Where(x => x.Id == Id).FirstOrDefaultAsync();          
+            var varliks =await  _context.Varliks.Where(x => x.Id == Id).FirstOrDefaultAsync();        
+            
+
+            /// varlık categori tablosunda ikinci ka yıtı engelle
+            /// 
 
 
             var varlik = await _context.Varliks.FindAsync(model.VarlikId);

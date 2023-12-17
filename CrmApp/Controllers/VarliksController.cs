@@ -78,9 +78,25 @@ namespace CrmApp.Controllers
             return View(varlikList);
 
         }
+        public IActionResult UserVarlikList(int Id)
+        {
+            var result = _context.Users.Join(_context.Varliks, x => x.Id, y => y.AppUserId, (x, y)
+                => new { Users = x, Varliks = y }).Where(x=> x.Users.Id==Id).ToList();
+
+            var varlikList = result.Select(x => new ListOfVarliksViewModel()
+            {
+                Id = x.Varliks.Id,
+                VarlikName = x.Varliks.VarlikName,
+                VarlikCode = x.Varliks.VarlikCode,
+                VarlikDescription = x.Varliks.VarlikDescription,               
+
+            }).ToList();
+            return View(varlikList);
+
+        }
 
 
-       
+
 
 
 
